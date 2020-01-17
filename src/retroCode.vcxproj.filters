@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="controls">
+      <UniqueIdentifier>{775e542f-8605-4acc-946b-e55bfc6d0d3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="views">
+      <UniqueIdentifier>{e49a06aa-0345-4d31-8d54-8f20fdbeb997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{ee13a0d4-aa44-4471-aff2-974a660821aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="managers">
+      <UniqueIdentifier>{2c51e9b6-fa73-4c77-ad26-16aaafc0f601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dialogs">
+      <UniqueIdentifier>{d839d740-baec-4cd5-a403-3f9c6fe14cb5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="controls\ScintillaCtrl.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="controls\ViewTree.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="views\ClassView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="views\FileView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="views\OutputWnd.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="views\PropertiesWnd.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="views\RetroCodeView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="views\ScintillaView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="main\ChildFrm.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="main\MainFrm.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="main\RetroCode.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="main\RetroCodeDoc.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="managers\PluginManager.h">
+      <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\NewProjectDlg.h">
+      <Filter>dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="managers\RetroCodeWorkspace.h">
+      <Filter>managers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="controls\ScintillaCtrl.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="controls\ViewTree.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="views\ClassView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="views\FileView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="views\OutputWnd.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="views\PropertiesWnd.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="views\RetroCodeView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="views\ScintillaView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="main\ChildFrm.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\MainFrm.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\RetroCode.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main\RetroCodeDoc.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="managers\PluginManager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\NewProjectDlg.cpp">
+      <Filter>dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="managers\RetroCodeWorkspace.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="retroCode.reg" />
+    <None Include="res\retroCode.rc2">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="retroCode.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\file_view.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\file_view_hc.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\class_view.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\class_view_hc.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\fileview.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\fileview_hc.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\classview.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\classview_hc.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\explorer.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\explorer_hc.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\sort.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\sort_hc.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\menuimages.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\menuimages_hc.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\output_wnd.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\output_wnd_hc.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\properties_wnd.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\properties_wnd_hc.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\properties.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\properties_hc.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\userimages.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\retroCodeDoc.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\retroCode.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\Toolbar256.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

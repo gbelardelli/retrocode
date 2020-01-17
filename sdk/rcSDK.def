@@ -1,0 +1,6 @@
+; rcSDK.def: dichiara i parametri del modulo per la DLL.
+
+LIBRARY
+
+EXPORTS
+    ; Inserire qui le esportazioni esplicite

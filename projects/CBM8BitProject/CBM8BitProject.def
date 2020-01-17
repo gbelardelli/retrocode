@@ -1,0 +1,6 @@
+; CBM8BitProject.def: dichiara i parametri del modulo per la DLL.
+
+LIBRARY
+
+EXPORTS
+    PluginEntry @1; Inserire qui le esportazioni esplicite

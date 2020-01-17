@@ -1,0 +1,15 @@
+REGEDIT
+; Questo file REG può essere utilizzato dal programma di installazione.
+;   Se non è disponibile un programma di installazione, le voci sottostanti verranno
+;   automaticamente registrate in InitInstance con una chiamata a
+;   CWinApp::RegisterShellFileTypes e COleObjectFactory::UpdateRegistryAll.
+
+HKEY_CLASSES_ROOT\.rcsln = retroCode.Document
+HKEY_CLASSES_ROOT\retroCode.Document\shell\open\command = retroCode.EXE %1
+HKEY_CLASSES_ROOT\retroCode.Document\shell\open\ddeexec = [open("%1")]
+HKEY_CLASSES_ROOT\retroCode.Document\shell\open\ddeexec\application = retroCode
+    ; Nota: l'applicazione è facoltativa
+    ;  (usa il nome dell'app come impostazione predefinita in "command")
+
+HKEY_CLASSES_ROOT\retroCode.Document = retroCode.Document
+
