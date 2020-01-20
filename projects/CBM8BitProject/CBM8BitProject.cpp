@@ -1,6 +1,27 @@
-// c64project.cpp: definisce le routine di inizializzazione per la DLL.
-//
+/*****************************************************************************
 
+	RetroCode - An IDE for retro development
+
+	CBM8BitProjectType.cpp
+	Author:		Gianluca Belardelli
+	Date:		10/01/2020
+
+	Copyright(c) 2018-2020 by Gianluca Belardelli.
+	All Rights Reserved
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, version 3.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, If not, see <http://www.gnu.org/licenses/>.
+
+*****************************************************************************/
 #include "stdafx.h"
 #include <RetroCodeEditor.h>
 #include "cbm8bitProject.h"
@@ -13,32 +34,6 @@
 #define new DEBUG_NEW
 #endif
 
-//
-//TODO: se questa DLL è collegata in modo dinamico alle DLL
-//		MFC, le funzioni esportate da questa DLL che
-//		vengono chiamate in MFC devono avere la macro AFX_MANAGE_STATE
-//		all'inizio della funzione.
-//
-//		Ad esempio:
-//
-//		extern "C" BOOL PASCAL EXPORT ExportedFunction()
-//		{
-//			AFX_MANAGE_STATE(AfxGetStaticModuleState());
-//			// corpo della funzione normale
-//		}
-//
-//		È molto importante che tale macro sia presente in ciascuna
-//		funzione davanti a qualsiasi chiamata MFC.  Tale macro dovrà
-//		quindi essere specificato come prima istruzione all'interno della
-//		funzione, precedendo anche le dichiarazioni di variabili oggetto,
-//		poiché i relativi costruttori possono generare chiamate alla DLL
-//		MFC.
-//
-//		Vedere le note tecniche 33 e 58 di MFC per ulteriori
-//		informazioni.
-//
-
-// Cc64projectApp
 /*
 BEGIN_MESSAGE_MAP(Cc64projectApp, CWinApp)
 END_MESSAGE_MAP()*/

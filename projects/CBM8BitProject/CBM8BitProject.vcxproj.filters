@@ -73,4 +73,15 @@
       <Filter>File di risorse</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Commodore_64_logo.bmp">
+      <Filter>File di risorse</Filter>
+    </Image>
+    <Image Include="res\Commodore_20_logo.bmp">
+      <Filter>File di risorse</Filter>
+    </Image>
+    <Image Include="res\Commodore_128_logo.bmp">
+      <Filter>File di risorse</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

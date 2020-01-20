@@ -1,6 +1,27 @@
-// NewProjectDlg.cpp: file di implementazione
-//
+/*****************************************************************************
 
+	RetroCode - An IDE for retro development
+
+	NewProjectDlg.cpp
+	Author:		Gianluca Belardelli
+	Date:		10/01/2020
+
+	Copyright(c) 2018-2020 by Gianluca Belardelli.
+	All Rights Reserved
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, version 3.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, If not, see <http://www.gnu.org/licenses/>.
+
+*****************************************************************************/
 #include "stdafx.h"
 #include "NewProjectDlg.h"
 #include "afxdialogex.h"
@@ -142,7 +163,7 @@ void NewProjectDlg::OnBnClickedOk()
 			
 			//HINSTANCE hOld = PluginManager::SetPluginResourceHandle(m_lpSelectedPrj->lpPlugin);
 			//lpPrj = m_lpSelectedPrj->lpPlugin->CreateProject( CString("Test"), CString("Path"), m_lpSelectedPrj->uiPrjTypeID);
-			RetroCodeWorkspace::GetHinstance()->CreateAndLoadProject(m_lpSelectedPrj->lpPlugin, CString("Test"), CString("C:\\MyProjects\\c64\\retrodev\\retroCode\\bin\\debug\\x64"), m_lpSelectedPrj->uiPrjTypeID);
+			RetroCodeWorkspace::GetHinstance()->CreateAndLoadProject(m_lpSelectedPrj->lpPlugin, CString("Test"), CString("C:\\MyProjects\\testpath"), m_lpSelectedPrj->uiPrjTypeID);
 			//AfxSetResourceHandle(hOld);
 		}
 		if( nModalRes == IDOK )
