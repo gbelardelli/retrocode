@@ -48,8 +48,7 @@ protected:
 // Methods
 private:
 	void AddChild(RetroCodeBaseItem *lpChild);
-
-	RetroCodeBaseItem *GetChildAt(int nIdx);
+	
 	CString GetChildNameAt(int nIdx);
 
 	bool RemoveChild(RetroCodeBaseItem *lpChild);
@@ -65,9 +64,10 @@ public:
 	CString &GetItemName(void);
 	unsigned int GetItemType(void);
 
+	RetroCodeBaseItem *GetParent(void);
 	void SetItemData(void *lpData);
 	void *GetItemData(void);
-
+	RetroCodeBaseItem *GetChildAt(int nIdx);
 	int GetChildsCount(void);
 	
 	unsigned int GetChildTypeAt(int nIdx);
@@ -100,17 +100,19 @@ class RCIMPEXP RetroCodeProjectFileItem : public RetroCodeBaseItem
 protected:
 	CString m_strFilePath;
 	CString m_strFullFilename;
-
+	
 	unsigned int m_uiFileType;
 
 protected:
 	void setFileType(void);
 
 public:
-	RetroCodeProjectFileItem(CString strItemName, CString strItemPath, RetroCodeBaseItem *lpParent = nullptr );
+	RetroCodeProjectFileItem(CString strItemName, CString strItemPath, bool bCreateFile = true, RetroCodeBaseItem *lpParent = nullptr );
 	virtual ~RetroCodeProjectFileItem(void);
 
 	unsigned int GetFileType(void);
+	CString GetPath(void);
+	CString GetFullFilename(void);
 };
 #endif
 // _RETROCODEPROJECTITEM_H_

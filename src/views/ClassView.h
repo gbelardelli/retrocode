@@ -2,7 +2,7 @@
 
 	RetroCode - An IDE for retro development
 
-	ClassView.h
+	ProjectView.h
 	Author:		Gianluca Belardelli
 	Date:		08/01/2020
 

@@ -156,15 +156,11 @@ void NewProjectDlg::OnBnClickedOk()
 	if(m_lpSelectedPrj)
 	{
 		int nModalRes = IDOK;
-		IRetroCodeProject *lpPrj = nullptr;
+		RetroCodeProject *lpPrj = nullptr;
 		this->SetWindowPos(nullptr, 0, 0, 0, 0, SWP_HIDEWINDOW);
 		if (m_lpSelectedPrj->lpPlugin)
 		{
-			
-			//HINSTANCE hOld = PluginManager::SetPluginResourceHandle(m_lpSelectedPrj->lpPlugin);
-			//lpPrj = m_lpSelectedPrj->lpPlugin->CreateProject( CString("Test"), CString("Path"), m_lpSelectedPrj->uiPrjTypeID);
-			RetroCodeWorkspace::GetHinstance()->CreateAndLoadProject(m_lpSelectedPrj->lpPlugin, CString("Test"), CString("C:\\MyProjects\\testpath"), m_lpSelectedPrj->uiPrjTypeID);
-			//AfxSetResourceHandle(hOld);
+			nModalRes = RetroCodeWorkspace::GetHinstance()->CreateAndLoadProject(m_lpSelectedPrj->lpPlugin, CString("Test"), CString("C:\\MyProjects\\testpath"), m_lpSelectedPrj->uiPrjTypeID);
 		}
 		if( nModalRes == IDOK )
 		{

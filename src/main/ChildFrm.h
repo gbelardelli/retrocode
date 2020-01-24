@@ -52,4 +52,6 @@ public:
 // Funzioni generate per la mappa dei messaggi
 protected:
 	DECLARE_MESSAGE_MAP()
+
+
 };

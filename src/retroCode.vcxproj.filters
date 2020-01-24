@@ -28,12 +28,6 @@
     <ClInclude Include="controls\ViewTree.h">
       <Filter>controls</Filter>
     </ClInclude>
-    <ClInclude Include="views\ClassView.h">
-      <Filter>views</Filter>
-    </ClInclude>
-    <ClInclude Include="views\FileView.h">
-      <Filter>views</Filter>
-    </ClInclude>
     <ClInclude Include="views\OutputWnd.h">
       <Filter>views</Filter>
     </ClInclude>
@@ -70,6 +64,15 @@
     <ClInclude Include="managers\RetroCodeWorkspace.h">
       <Filter>managers</Filter>
     </ClInclude>
+    <ClInclude Include="managers\RetroCodeManager.h">
+      <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="views\ClassView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="views\ProjectView.h">
+      <Filter>views</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="controls\ScintillaCtrl.cpp">
@@ -77,12 +80,6 @@
     </ClCompile>
     <ClCompile Include="controls\ViewTree.cpp">
       <Filter>controls</Filter>
-    </ClCompile>
-    <ClCompile Include="views\ClassView.cpp">
-      <Filter>views</Filter>
-    </ClCompile>
-    <ClCompile Include="views\FileView.cpp">
-      <Filter>views</Filter>
     </ClCompile>
     <ClCompile Include="views\OutputWnd.cpp">
       <Filter>views</Filter>
@@ -117,6 +114,15 @@
     </ClCompile>
     <ClCompile Include="managers\RetroCodeWorkspace.cpp">
       <Filter>managers</Filter>
+    </ClCompile>
+    <ClCompile Include="managers\RetroCodeManager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
+    <ClCompile Include="views\ClassView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="views\ProjectView.cpp">
+      <Filter>views</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

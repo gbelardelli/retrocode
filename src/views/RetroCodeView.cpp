@@ -23,6 +23,7 @@
 
 *****************************************************************************/
 #include <stdafx.h>
+#include <RetroCodeEditor.h>
 #include <main\RetroCode.h>
 #include "RetroCodeView.h"
 #include "ScintillaView.h"
@@ -64,6 +65,8 @@ BEGIN_MESSAGE_MAP(CRetroCodeView, CScintillaView)
   ON_UPDATE_COMMAND_UI(ID_INDICATOR_OVR, &CRetroCodeView::OnUpdateInsert)
   */
   ON_WM_ACTIVATE()
+	ON_WM_SETFOCUS()
+	ON_WM_KILLFOCUS()
 END_MESSAGE_MAP()
 
 CRetroCodeView::CRetroCodeView()
@@ -638,4 +641,25 @@ void CRetroCodeView::OnModified(_Inout_ SCNotification* pSCNotification)
 std::unique_ptr<CScintillaCtrl> CRetroCodeView::CreateScintillaControl()
 {
   return std::make_unique<CScintillaCtrl>();
+}
+
+
+void CRetroCodeView::OnSetFocus(CWnd* pOldWnd)
+{
+	CScintillaView::OnSetFocus(pOldWnd);
+	// TODO: aggiungere qui il codice del gestore di messaggi
+	wchar_t szMsg[512];
+	wsprintf(szMsg, _T("CRetroCodeView::OnSetFocus: 0x%lx\n"), pOldWnd);
+	OutputDebugString(szMsg);
+}
+
+
+void CRetroCodeView::OnKillFocus(CWnd* pNewWnd)
+{
+	CScintillaView::OnKillFocus(pNewWnd);
+	wchar_t szMsg[512];
+	wsprintf(szMsg, _T("CRetroCodeView::OnKillFocus: 0x%lx\n"), pNewWnd);
+	OutputDebugString(szMsg);
+	//pNewWnd->Dump(afxDump);
+	// TODO: aggiungere qui il codice del gestore di messaggi
 }

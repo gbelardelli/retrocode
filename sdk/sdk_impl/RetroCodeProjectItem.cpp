@@ -69,6 +69,11 @@ void *RetroCodeBaseItem::GetItemData(void)
 	return m_lpItemData;
 }
 
+RetroCodeBaseItem *RetroCodeBaseItem::GetParent(void)
+{
+	return m_lpParentItem;
+}
+
 void RetroCodeBaseItem::AddChild(RetroCodeBaseItem *lpChild)
 {
 	lpChild->m_lpParentItem = this;
@@ -172,11 +177,21 @@ RetroCodeFilterItem::~RetroCodeFilterItem(void)
 
 
 RetroCodeProjectFileItem::RetroCodeProjectFileItem(
-	CString strItemName, CString strItemPath, RetroCodeBaseItem *lpParent) :
+	CString strItemName, CString strItemPath, bool bCreateFile, RetroCodeBaseItem *lpParent) :
 		RetroCodeBaseItem( strItemName, lpParent ),
 		m_strFilePath(strItemPath)
 {
 	m_uiItemType = RetroCodeItemType::FILE_ITEM;
+	m_strFullFilename = m_strFilePath;
+	if (m_strFilePath.GetAt(m_strFilePath.GetLength() - 1) != '\\')
+		m_strFullFilename += "\\";
+
+	m_strFullFilename += strItemName;
+	if( bCreateFile )
+	{
+		CFile file(m_strFullFilename, CFile::modeCreate);
+		file.Close();
+	}
 }
 
 RetroCodeProjectFileItem::~RetroCodeProjectFileItem(void)
@@ -186,6 +201,16 @@ RetroCodeProjectFileItem::~RetroCodeProjectFileItem(void)
 unsigned int RetroCodeProjectFileItem::GetFileType(void)
 {
 	return m_uiFileType;
+}
+
+CString RetroCodeProjectFileItem::GetPath(void)
+{
+	return m_strFilePath;
+}
+
+CString RetroCodeProjectFileItem::GetFullFilename(void)
+{
+	return m_strFullFilename;
 }
 
 void RetroCodeProjectFileItem::setFileType(void)

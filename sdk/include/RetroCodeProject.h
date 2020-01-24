@@ -41,9 +41,10 @@ protected:
 	CString m_strPrjDesc;
 	CString m_strPrjPath;
 	CString m_strFullPrjFilename;
-
+	CString m_strPluginName;
 	RetroCodeBaseItem	*m_lpRootItem;
-	CFile				*m_lpPrjFile;
+	//CFile				*m_lpPrjFile;
+	tinyxml2::XMLDocument	*m_lpPrjDoc;
 
 	std::vector<RetroCodeBaseItem *>m_vcChilds;
 
@@ -57,6 +58,7 @@ protected:
 	void setProjectPath(CString strPrjPath);
 	void setProjectID(unsigned int uiPrjID);
 	void setFullFilename(CString strFilename);
+	void setPluginName(CString strPluginName);
 	void createRootItem(void);
 
 	virtual void onNewProject(void) = 0;
@@ -76,11 +78,11 @@ public:
 	virtual void onBuildProject( void ) = 0;
 	virtual void onCleanProject( void ) = 0;
 
-	RetroCodeBaseItem *AddFileItem(CString strItemName, CString strItemPath, RetroCodeBaseItem *lpParent = nullptr);
+	RetroCodeBaseItem *AddFileItem(CString strItemName, CString strItemPath, bool bCreateFile, RetroCodeBaseItem *lpParent = nullptr);
 	RetroCodeBaseItem *AddFilterItem(CString strItemName, CString strFilter, RetroCodeBaseItem *lpParent = nullptr);
 	RetroCodeBaseItem *AddFolderItem(CString strItemName, CString strItemPath, RetroCodeBaseItem *lpParent = nullptr);
 
-	int GetItemsCount(void);
+	//int GetItemsCount(void);
 	RetroCodeBaseItem *GetRootItem(void);
 
 	//RetroCodeBaseItem *GetChildAt(int nIdx);

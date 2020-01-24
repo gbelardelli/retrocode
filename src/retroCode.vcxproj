@@ -197,12 +197,13 @@
     <ClInclude Include="main\RetroCode.h" />
     <ClInclude Include="main\RetroCodeDoc.h" />
     <ClInclude Include="managers\PluginManager.h" />
+    <ClInclude Include="managers\RetroCodeManager.h" />
     <ClInclude Include="managers\RetroCodeWorkspace.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="views\ClassView.h" />
-    <ClInclude Include="views\FileView.h" />
+    <ClInclude Include="views\ProjectView.h" />
     <ClInclude Include="views\OutputWnd.h" />
     <ClInclude Include="views\PropertiesWnd.h" />
     <ClInclude Include="views\RetroCodeView.h" />
@@ -217,6 +218,7 @@
     <ClCompile Include="main\RetroCode.cpp" />
     <ClCompile Include="main\RetroCodeDoc.cpp" />
     <ClCompile Include="managers\PluginManager.cpp" />
+    <ClCompile Include="managers\RetroCodeManager.cpp" />
     <ClCompile Include="managers\RetroCodeWorkspace.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -225,7 +227,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="views\ClassView.cpp" />
-    <ClCompile Include="views\FileView.cpp" />
+    <ClCompile Include="views\ProjectView.cpp" />
     <ClCompile Include="views\OutputWnd.cpp" />
     <ClCompile Include="views\PropertiesWnd.cpp" />
     <ClCompile Include="views\RetroCodeView.cpp" />

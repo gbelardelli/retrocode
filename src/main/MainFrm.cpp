@@ -23,7 +23,7 @@
 
 *****************************************************************************/
 #include <stdafx.h>
-
+#include <RetroCodeEditor.h>
 #include "retroCode.h"
 #include "MainFrm.h"
 
@@ -45,6 +45,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 	ON_COMMAND(ID_VIEW_CUSTOMIZE, &CMainFrame::OnViewCustomize)
 	ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &CMainFrame::OnToolbarCreateNew)
 	ON_WM_SETTINGCHANGE()
+	ON_REGISTERED_MESSAGE(AFX_WM_CHANGING_ACTIVE_TAB, &CMainFrame::OnAfxWmChangingActiveTab)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -366,3 +367,34 @@ void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 	CMDIFrameWndEx::OnSettingChange(uFlags, lpszSection);
 	m_wndOutput.UpdateFonts();
 }
+
+void CMainFrame::ActivateTab(CString strTabTitle)
+{
+	const CObList& TabGrps = m_wndClientArea.GetMDITabGroups();
+	int nTabIdx = 0;
+
+	// Dovrebbe esserci un solo tab group per default
+	POSITION pos = TabGrps.GetHeadPosition();
+	CMFCTabCtrl* pNextWnd = DYNAMIC_DOWNCAST(CMFCTabCtrl, TabGrps.GetNext(pos));
+
+	CString tabName;
+	int numTabs = pNextWnd->GetTabsNum();
+		
+	for(int i=0;i< numTabs;i++)
+	{
+		pNextWnd->GetTabLabel(i, tabName);
+
+		if( tabName.Compare(strTabTitle) == 0 )
+		{
+			pNextWnd->ActivateMDITab(i);
+			//pNextWnd->SetFocus();
+			break;
+		}
+	}
+}
+
+afx_msg LRESULT CMainFrame::OnAfxWmChangingActiveTab(WPARAM wParam, LPARAM lParam)
+{
+	return 0;
+}
+

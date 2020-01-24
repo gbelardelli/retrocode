@@ -29,6 +29,9 @@
 
 class CViewTree : public CTreeCtrl
 {
+private:
+	bool m_bIsContext;
+	CView *m_lpFocusView;
 // Costruzione
 public:
 	CViewTree() noexcept;
@@ -43,4 +46,20 @@ public:
 
 protected:
 	DECLARE_MESSAGE_MAP()
+
+	void manageMouseClick(NMHDR *pNMHDR, LRESULT *pResult, bool bSetFocus = false);
+
+public:
+	afx_msg void OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult);
+	virtual BOOL Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID);
+	afx_msg void OnTvnSelchanged(NMHDR *pNMHDR, LRESULT *pResult);
+
+	void SelectItemForContextMenu(HTREEITEM hItem);
+	afx_msg void OnTvnSelchanging(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMRClick(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnNMClick(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 };

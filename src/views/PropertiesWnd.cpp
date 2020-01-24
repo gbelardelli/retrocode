@@ -23,7 +23,7 @@
 
 *****************************************************************************/
 #include "stdafx.h"
-
+#include <RetroCodeEditor.h>
 #include "PropertiesWnd.h"
 #include "Resource.h"
 #include <main\MainFrm.h>

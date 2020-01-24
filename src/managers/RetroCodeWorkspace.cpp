@@ -55,6 +55,7 @@ int RetroCodeWorkspace::CreateAndLoadProject(RetroCodeProjectTypePlugin *lpPlugi
 			m_lpActiveProject = lpNewPrj;
 
 		m_vcWorkspaceProjects.push_back(lpNewPrj);
+		return 1;
 	}
 
 	return -1;

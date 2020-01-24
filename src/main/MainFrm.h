@@ -23,7 +23,7 @@
 
 *****************************************************************************/
 #pragma once
-#include <views/FileView.h>
+#include <views/ProjectView.h>
 #include <views/ClassView.h>
 #include <views/OutputWnd.h>
 #include <views/PropertiesWnd.h>
@@ -74,6 +74,11 @@ protected:
 
 	BOOL CreateDockingWindows();
 	void SetDockingWindowIcons(BOOL bHiColorIcons);
+
+public:
+	void ActivateTab(CString strTabTitle);
+protected:
+	afx_msg LRESULT OnAfxWmChangingActiveTab(WPARAM wParam, LPARAM lParam);
 };
 
 

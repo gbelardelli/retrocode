@@ -1326,6 +1326,7 @@ void CScintillaView::OnSetFocus(CWnd* /*pOldWnd*/)
 
   //Give the focus to the child control
   m_pEdit->SetFocus();
+  OutputDebugString(_T("******** Call CScintillaView::OnSetFocus\n"));
 }
 
 #pragma warning(suppress: 26434)

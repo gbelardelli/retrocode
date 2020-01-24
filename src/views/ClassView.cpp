@@ -2,7 +2,7 @@
 
 	RetroCode - An IDE for retro development
 
-	ClassView.cpp
+	ProjectView.cpp
 	Author:		Gianluca Belardelli
 	Date:		08/01/2020
 
@@ -23,6 +23,7 @@
 
 *****************************************************************************/
 #include "stdafx.h"
+#include <RetroCodeEditor.h>
 #include <main\MainFrm.h>
 #include <views\ClassView.h>
 #include "Resource.h"
@@ -95,7 +96,7 @@ int CClassView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	rectDummy.SetRectEmpty();
 
 	// Creare visualizzazioni:
-	const DWORD dwViewStyle = WS_CHILD | WS_VISIBLE | TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS | WS_CLIPSIBLINGS | WS_CLIPCHILDREN;
+	const DWORD dwViewStyle = WS_CHILD | WS_VISIBLE | TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | TVS_SHOWSELALWAYS;
 
 	if (!m_wndClassView.Create(dwViewStyle, rectDummy, this, 2))
 	{
@@ -203,7 +204,7 @@ void CClassView::OnContextMenu(CWnd* pWnd, CPoint point)
 		HTREEITEM hTreeItem = pWndTree->HitTest(ptTree, &flags);
 		if (hTreeItem != nullptr)
 		{
-			pWndTree->SelectItem(hTreeItem);
+			((CViewTree*)pWndTree)->SelectItemForContextMenu(hTreeItem);
 		}
 	}
 

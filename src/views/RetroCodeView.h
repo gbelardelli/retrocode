@@ -69,6 +69,9 @@ protected:
 
   void SetAStyle(int style, COLORREF fore, COLORREF back=RGB(0xff, 0xff, 0xff), int size=-1, const char *face=0);
   void DefineMarker(int marker, int markerType, COLORREF fore, COLORREF back);
+public:
+	afx_msg void OnSetFocus(CWnd* pOldWnd);
+	afx_msg void OnKillFocus(CWnd* pNewWnd);
 };
 
 #endif

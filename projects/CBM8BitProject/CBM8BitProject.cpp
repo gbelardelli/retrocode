@@ -143,7 +143,8 @@ int CBM8BitProjectType::onCreateProject(RetroCodeProject **newProject, int nPrjI
 
 	if (nPrjID == m_c64PrjID)
 	{
-		nModalRes = m_lpWizardDlg->DoModal();
+		nModalRes = IDOK;
+		//nModalRes = m_lpWizardDlg->DoModal();
 		if (nModalRes == IDOK)
 		{
 			m_lpC64Prj = new C64Project(0);

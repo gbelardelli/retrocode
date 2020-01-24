@@ -42,11 +42,27 @@ void C64Project::onNewProject(void)
 	RetroCodeBaseItem *lpItem = AddFilterItem(CString("Assembler Files"), CString("asm"));
 
 	if(m_cAutoCreateFiles & 1)
-		AddFileItem(CString("main.asm"), m_strPrjPath, lpItem );
-
+	{
+		AddFileItem(CString("main.asm"), m_strPrjPath, true, lpItem );
+		AddFileItem(CString("main2.asm"), m_strPrjPath, true, lpItem);
+		AddFileItem(CString("main3.asm"), m_strPrjPath, true, lpItem);
+	}
 	lpItem = AddFilterItem(CString("Basic Files"), CString("bas"));
 	if (m_cAutoCreateFiles & 2)
-		AddFileItem(CString("basic.bas"), m_strPrjPath, lpItem);
+	{
+		AddFileItem(CString("basic.bas"), m_strPrjPath, true, lpItem);
+		AddFileItem(CString("basic2.bas"), m_strPrjPath, true, lpItem);
+		RetroCodeBaseItem *lpItem2 = AddFilterItem(CString("Test inner filter"), CString("asm"), lpItem);
+		AddFileItem(CString("inner.spr"), m_strPrjPath, true, lpItem2);
+	}
+	
+	lpItem = AddFilterItem(CString("Spote Files"), CString("bas"));
+	if (m_cAutoCreateFiles & 2)
+	{
+		AddFileItem(CString("file.txt"), m_strPrjPath, true, lpItem);
+		AddFileItem(CString("file1.txt"), m_strPrjPath, true, lpItem);
+		AddFileItem(CString("file2.spr"), m_strPrjPath, true, lpItem);
+	}
 }
 
 void C64Project::onSaveProject(void)

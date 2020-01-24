@@ -45,7 +45,7 @@
 BEGIN_MESSAGE_MAP(CRetroCodeApp, CWinAppEx)
 	ON_COMMAND(ID_APP_ABOUT, &CRetroCodeApp::OnAppAbout)
 	// Comandi di documenti basati su file standard
-	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
+	//ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
 	// Comando di stampa standard
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
@@ -317,8 +317,22 @@ void CRetroCodeApp::SaveCustomState()
 
 void CRetroCodeApp::OnFileNew()
 {
+	POSITION pos = GetFirstDocTemplatePosition();
+	CDocTemplate *lpDocTemplate = GetNextDocTemplate(pos);
+	
 	NewProjectDlg dlg(true);
-	dlg.DoModal();
+	int nModalResult = dlg.DoModal();
+	if( nModalResult == IDOK)
+	{
+		//CWinAppEx::OnFileNew();
+		//pos = lpDocTemplate->GetFirstDocPosition();
+		//int ndoc = GetOpenDocumentCount();
+		//CDocument *lpDoc = lpDocTemplate->CreateNewDocument();
+		//ndoc = GetOpenDocumentCount();
+		//lpDoc->OnNewDocument();
+		//CDocument *lpDoc = lpDocTemplate->GetNextDoc(pos);
+
+	}
 }
 
 
@@ -326,4 +340,12 @@ void CRetroCodeApp::OnNewFile()
 {
 	NewProjectDlg dlg(true);
 	dlg.DoModal();
+}
+
+
+CDocument* CRetroCodeApp::OpenDocumentFile(LPCTSTR lpszFileName)
+{
+	// TODO: aggiungere qui il codice specifico e/o chiamare la classe di base
+
+	return CWinAppEx::OpenDocumentFile(lpszFileName);
 }

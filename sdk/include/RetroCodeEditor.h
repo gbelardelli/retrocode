@@ -49,12 +49,13 @@ typedef enum
 #include <vector>
 #include <map>
 
+#include <tinyxml2.h>
 #include <AWCGui.h>
 
 #include <IRetroCodeManager.h>
 #include <RetroCodeProjectItem.h>
 #include <RetroCodeProject.h>
-
+#include <IRetroCodeManager.h>
 #include <IPlugin.h>
 //#include <IRetroCodeAction.h>
 #include <RetroCodeProjectTypePlugin.h>

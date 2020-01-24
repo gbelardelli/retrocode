@@ -23,7 +23,7 @@
 
 *****************************************************************************/
 #include <stdafx.h>
-
+#include <RetroCodeEditor.h>
 // SHARED_HANDLERS può essere definito in un'anteprima di implementazione del progetto ATL, nei gestori di anteprime
 // e della ricerca e consente di condividere il codice dei documenti con il progetto in questione.
 
@@ -64,9 +64,10 @@ BOOL CRetroCodeDoc::OnNewDocument()
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
+	//this->SetTitle(_T("ciao"));
 	// TODO: aggiungere qui il codice di reinizializzazione
 	// (nei documenti SDI verrà riutilizzato questo documento).
-
+	
 	return TRUE;
 }
 

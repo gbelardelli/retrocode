@@ -62,8 +62,9 @@ int RetroCodeProjectTypePlugin::CreateProject(RetroCodeProject **newProject, CSt
 		(*newProject)->setProjectID(nPrjID);
 		(*newProject)->setProjectArch(GetProjectTypeArch());
 		(*newProject)->createRootItem();
-		
+		(*newProject)->setPluginName(GetName());
 		(*newProject)->onNewProject();
+		(*newProject)->SaveProject();
 	}
 
 	return 0;

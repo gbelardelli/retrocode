@@ -23,7 +23,7 @@
 
 *****************************************************************************/
 #include <stdafx.h>
-
+#include <RetroCodeEditor.h>
 #include "retroCode.h"
 #include "ChildFrm.h"
 
@@ -36,6 +36,7 @@
 IMPLEMENT_DYNCREATE(CChildFrame, CMDIChildWndEx)
 
 BEGIN_MESSAGE_MAP(CChildFrame, CMDIChildWndEx)
+	
 END_MESSAGE_MAP()
 
 // Costruzione/distruzione di CChildFrame

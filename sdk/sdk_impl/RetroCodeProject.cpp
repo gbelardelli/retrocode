@@ -25,9 +25,13 @@
 #include "stdafx.h"
 #include <RetroCodeEditor.h>
 
+using namespace tinyxml2;
+
+int traverseTreeSave(tinyxml2::XMLDocument *lpDoc, tinyxml2::XMLElement *lpParentElem, RetroCodeBaseItem *lpItem);
+
 RetroCodeProject::RetroCodeProject(void) :
 	m_lpRootItem(nullptr),
-	m_lpPrjFile(nullptr),
+	m_lpPrjDoc(nullptr),
 	m_bSaveProject(false)
 {
 }
@@ -72,17 +76,21 @@ void RetroCodeProject::setFullFilename(CString strFilename)
 	m_strFullPrjFilename = strFilename;
 }
 
+void RetroCodeProject::setPluginName(CString strPluginName)
+{
+	m_strPluginName = strPluginName;
+}
 
-RetroCodeBaseItem *RetroCodeProject::AddFileItem(CString strItemName, CString strItemPath, RetroCodeBaseItem *lpParent)
+RetroCodeBaseItem *RetroCodeProject::AddFileItem(CString strItemName, CString strItemPath, bool bCreateFile, RetroCodeBaseItem *lpParent)
 {
 	if (m_lpRootItem == nullptr)
 		return nullptr;
 
 	RetroCodeBaseItem *lpItem;
 	if (lpParent == nullptr)
-		lpItem = new RetroCodeProjectFileItem(strItemName, strItemPath, m_lpRootItem);
+		lpItem = new RetroCodeProjectFileItem(strItemName, strItemPath, bCreateFile, m_lpRootItem);
 	else
-		lpItem = new RetroCodeProjectFileItem(strItemName, strItemPath, lpParent);
+		lpItem = new RetroCodeProjectFileItem(strItemName, strItemPath, bCreateFile, lpParent);
 
 	m_bSaveProject = true;
 	return lpItem;
@@ -95,9 +103,9 @@ RetroCodeBaseItem *RetroCodeProject::AddFilterItem(CString strItemName, CString 
 
 	RetroCodeBaseItem *lpItem;
 	if (lpParent == nullptr)
-		lpItem = new RetroCodeProjectFileItem(strItemName, strFilter, m_lpRootItem);
+		lpItem = new RetroCodeFilterItem(strItemName, strFilter, m_lpRootItem);
 	else
-		lpItem = new RetroCodeProjectFileItem(strItemName, strFilter, lpParent);
+		lpItem = new RetroCodeFilterItem(strItemName, strFilter, lpParent);
 
 	m_bSaveProject = true;
 	return lpItem;
@@ -112,18 +120,75 @@ int RetroCodeProject::SaveProject(void)
 {
 	if(m_bSaveProject)
 	{
-		if(!m_lpPrjFile)
+		if(!m_lpPrjDoc)
 		{
-			m_lpPrjFile = new CFile();
-			if(!m_lpPrjFile->Open(m_strFullPrjFilename, CFile::modeCreate | CFile::modeReadWrite))
-			{
-				delete m_lpPrjFile;
-				m_lpPrjFile = nullptr;
-				return -1;
-			}
+			m_lpPrjDoc = new tinyxml2::XMLDocument();
+
+			tinyxml2::XMLElement *lpRoot = m_lpPrjDoc->NewElement("Project");
+			lpRoot->SetAttribute("RetroCodeVersion",1);
+			lpRoot->SetAttribute("TreeType", "virtual");
+
+			USES_CONVERSION;
+			char* pchTmp(T2A(m_strPluginName));
+
+			lpRoot->SetAttribute("Plugin", pchTmp);
+			
+
+			traverseTreeSave(m_lpPrjDoc, lpRoot, m_lpRootItem);
+			m_lpPrjDoc->InsertFirstChild(lpRoot);
+			//USES_CONVERSION;
+			char* pchTmp2(T2A(m_strFullPrjFilename));
+			m_lpPrjDoc->SaveFile(pchTmp2);
 		}
 
 		m_bSaveProject = false;
+	}
+
+	return 0;
+}
+
+RetroCodeBaseItem *RetroCodeProject::GetRootItem(void)
+{
+	return m_lpRootItem;
+}
+
+int traverseTreeSave( tinyxml2::XMLDocument *lpDoc, tinyxml2::XMLElement *lpParentElem, RetroCodeBaseItem *lpItem )
+{
+	const int nSize = lpItem->GetChildsCount();
+	RetroCodeBaseItem *lpChild;
+
+	for(int i=0; i<nSize; i++)
+	{
+		lpChild = lpItem->GetChildAt(i);
+		
+		if(lpChild->GetItemType() == RetroCodeItemType::FILTER_ITEM )
+		{
+			tinyxml2::XMLElement *lpElem = lpDoc->NewElement("ItemGroup");
+			USES_CONVERSION;
+			char* pchTmp(T2A(lpChild->GetItemName()));
+
+			lpElem->SetAttribute("name", pchTmp);
+
+			traverseTreeSave(lpDoc,lpElem,lpChild);
+			if (lpParentElem)
+				lpParentElem->InsertEndChild(lpElem);
+			else
+				lpDoc->InsertEndChild(lpElem);
+		}
+
+		if(lpChild->GetItemType() == RetroCodeItemType::FILE_ITEM)
+		{
+			RetroCodeProjectFileItem *lpFileItem = (RetroCodeProjectFileItem *)lpChild;
+			tinyxml2::XMLElement *lpElem = lpDoc->NewElement("Item");
+			USES_CONVERSION;
+			char* pchTmp(T2A(lpFileItem->GetItemName()));
+			lpElem->SetAttribute("name", pchTmp);
+
+			char* pchTmp2(T2A(lpFileItem->GetPath()));
+			lpElem->SetAttribute("path", pchTmp2);
+			lpParentElem->InsertEndChild(lpElem);
+			//lpDoc->InsertEndChild(lpElem);
+		}
 	}
 
 	return 0;

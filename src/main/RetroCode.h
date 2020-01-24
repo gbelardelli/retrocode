@@ -61,6 +61,7 @@ public:
 	DECLARE_MESSAGE_MAP()
 	afx_msg void OnFileNew();
 	afx_msg void OnNewFile();
+	virtual CDocument* OpenDocumentFile(LPCTSTR lpszFileName);
 };
 
 extern CRetroCodeApp theApp;

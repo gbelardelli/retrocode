@@ -25,7 +25,7 @@
 #ifndef _IRETROCODEMANAGER_H_
 #define _IRETROCODEMANAGER_H_
 
-class IRetroCodeProject;
+class RetroCodeProject;
 //class AWCMainFrame;
 class CWnd;
 
@@ -35,13 +35,15 @@ class CWnd;
 class RCIMPEXP IRetroCodeManager
 {
 public:
-	virtual bool InitDefaultPlugins( const wchar_t *lpwcPluginPath ) = 0;
-	/*virtual AWCMainFrame *GetMainEditorFrame( void ) = 0;
-	virtual void SetMainEditorFrame( AWCMainFrame *lpFrame ) = 0;
+	//virtual bool InitDefaultPlugins( const wchar_t *lpwcPluginPath ) = 0;
+	virtual CDockablePane *GetProjectView( void ) = 0;
+	virtual CMDIFrameWndEx *GetMainEditorFrame( void ) = 0;
+	virtual void SetMainEditorFrame(CMDIFrameWndEx *lpFrame ) = 0;
+	/*
 	virtual bool CreateEditorPanel( CWnd *lpView ) = 0;
 	virtual bool ShowEditorPanel( CWnd *lpView ) = 0;*/
-	virtual IRetroCodeProject *GetActiveProject( void ) = 0;
-	virtual void SetActiveProject(IRetroCodeProject *lpProject ) = 0;
+	virtual RetroCodeProject *GetActiveProject( void ) = 0;
+	//virtual void SetActiveProject(IRetroCodeProject *lpProject ) = 0;
 	/*virtual bool AddToolsMenuItem( wchar_t *lpwcText, HICON hIcon = NULL, wchar_t *lpwcMsg = NULL ) = 0;
 	virtual bool AddToolsMenuItem( LPAWCMENU *lpMenu ) = 0;
 
